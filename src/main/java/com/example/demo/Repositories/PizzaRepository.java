@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.models.Pizza;
 
 @Repository
-public interface PizzaRepository extends JpaRepository<Long, Pizza>{
+public interface PizzaRepository extends JpaRepository<Pizza,Integer>{
 
 }

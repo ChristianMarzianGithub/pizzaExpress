@@ -10,17 +10,17 @@ public class IngredientEntity {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+	private Integer Id;
 	
 	private String name;
 	private String unit;
 	private Double quantity;	
 		
 	public Integer getId() {
-		return id;
+		return Id;
 	}
 	public void setId(Integer id) {
-		this.id = id;
+		this.Id = id;
 	}
 	public String getName() {
 		return name;
@@ -43,6 +43,6 @@ public class IngredientEntity {
 	
 	@Override
 	public String toString() {
-		return "Ingredient [id=" + id + ", name=" + name + ", unit=" + unit + ", quantity=" + quantity + "]";
+		return "Ingredient [id=" + Id + ", name=" + name + ", unit=" + unit + ", quantity=" + quantity + "]";
 	} 
 }

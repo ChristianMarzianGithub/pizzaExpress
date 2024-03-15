@@ -4,18 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Repositories.IngredientRepository;
-import com.example.demo.models.Ingredient;
+import com.example.demo.entities.IngredientEntity;
 
 @Service
 public class IngredientService {
 	
 	@Autowired
-	IngredientRepository ingredientRepository;
+	private IngredientRepository ingredientRepository;
 	
-	public void save(Ingredient ingredient) 
+	public void save(IngredientEntity ingredientEntity) 
 	{
-		ingredientRepository.save()
+		ingredientRepository.save(ingredientEntity);
 	}
 	
-
+	public void update(IngredientEntity ingredientEntity) {
+		ingredientRepository.deleteById(ingredientEntity.getId());
+		ingredientRepository.save(ingredientEntity);
+	}
 }
