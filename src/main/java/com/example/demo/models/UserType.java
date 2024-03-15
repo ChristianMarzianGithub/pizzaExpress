@@ -1,10 +1,9 @@
 package com.example.demo.models;
 
 public class UserType {
-	@Override
-	public String toString() {
-		return "UserType [id=" + id + ", description=" + description + "]";
-	}
+	private Integer id;
+	private String description;
+		
 	public Integer getId() {
 		return id;
 	}
@@ -17,7 +16,8 @@ public class UserType {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	private Integer id;
-	private String description;
-
+	@Override
+	public String toString() {
+		return "UserType [id=" + id + ", description=" + description + "]";
+	}
 }

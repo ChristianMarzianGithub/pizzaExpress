@@ -1,10 +1,12 @@
 package com.example.demo.models;
 
 public class Ingredient {
-	@Override
-	public String toString() {
-		return "Ingredient [id=" + id + ", name=" + name + ", unit=" + unit + ", quantity=" + quantity + "]";
-	}
+	
+	private Integer id;
+	private String name;
+	private String unit;
+	private Double quantity;	
+		
 	public Integer getId() {
 		return id;
 	}
@@ -29,9 +31,9 @@ public class Ingredient {
 	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
 	}
-	private Integer id;
-	private String name;
-	private String unit;
-	private Double quantity;	
-
+	
+	@Override
+	public String toString() {
+		return "Ingredient [id=" + id + ", name=" + name + ", unit=" + unit + ", quantity=" + quantity + "]";
+	}
 }
