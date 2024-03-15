@@ -2,7 +2,7 @@ package com.example.demo.models;
 
 public class User {
 	
-	private  Integer Id;
+	private Integer Id;
 	private String name;
 	private String password;
 	private UserType userType;
