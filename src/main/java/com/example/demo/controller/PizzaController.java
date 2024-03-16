@@ -41,13 +41,12 @@ public class PizzaController {
 		return pizzaService.findById(id);
 	}
 	
-	@PostMapping("/addPizza/{name}")
-	public Long addPizza(@PathVariable String name,@RequestBody PizzaEntity pizza){
+	@PostMapping("/addPizza")
+	public Long addPizza(@RequestBody PizzaEntity pizza){
 		List<IngredientEntity> ingredients = new ArrayList<IngredientEntity>();
 		ingredients.addAll(pizza.getIngredients());
 		ingredientService.saveAll(ingredients);
 		
-		pizza.setName(name);		
 		pizzaService.save(pizza);
 		return pizza.getId();
 	}
