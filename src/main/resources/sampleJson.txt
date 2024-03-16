@@ -1,0 +1,38 @@
+Add new Pizza:
+POST: http://localhost:8080/pizza/addPizza/FruttiDiMare
+Body: (JSON)
+{
+    "name": "Frutti Di Mare",
+    "ingredient": [
+        {
+            "name": "Thunfisch",
+            "unit": "Stück",
+            "quantity": 5.0
+        },
+        {
+            "name": "Zwiebeln",
+            "unit": "Stück",
+            "quantity": 5.0
+        },
+        {
+            "name": "Kalamari",
+            "unit": "Stück",
+            "quantity": 5.0
+        },
+        {
+            "name": "Muscheln",
+            "unit": "Stück",
+            "quantity": 5.0
+        },
+        {
+            "name": "Käse",
+            "unit": "Gramm",
+            "quantity": 300.0
+        },
+        {
+            "name": "Tomatensauce",
+            "unit": "MilliLiter",
+            "quantity": 100.0
+        }
+    ]
+}
