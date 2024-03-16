@@ -1,9 +1,13 @@
 package com.example.demo.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class PizzaEntity {
@@ -12,15 +16,17 @@ public class PizzaEntity {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;	
 	private String name;
-	//private Ingredient ingredient;
-	/*
-	public Ingredient getIngredient() {
-		return ingredient;
+	
+	@OneToMany
+	private List<IngredientEntity> ingredients = new ArrayList<>();
+	
+	
+	public List<IngredientEntity> getIngredient() {
+		return ingredients;
 	}
-	public void setIngredient(Ingredient ingredient) {
-		this.ingredient = ingredient;
+	public void setIngredient(List<IngredientEntity> ingredients) {
+		this.ingredients = ingredients;
 	}
-	*/
 	public Integer getId() {
 		return id;
 	}
