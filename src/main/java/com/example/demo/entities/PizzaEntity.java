@@ -14,23 +14,23 @@ public class PizzaEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;	
+	private Long id;	
 	private String name;
 	
 	@OneToMany
 	private List<IngredientEntity> ingredients = new ArrayList<>();
 	
 	
-	public List<IngredientEntity> getIngredient() {
+	public List<IngredientEntity> getIngredients() {
 		return ingredients;
 	}
 	public void setIngredient(List<IngredientEntity> ingredients) {
 		this.ingredients = ingredients;
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {

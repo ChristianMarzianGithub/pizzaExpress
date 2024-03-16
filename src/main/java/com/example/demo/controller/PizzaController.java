@@ -2,19 +2,21 @@ package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Repositories.PizzaRepository;
 import com.example.demo.Services.IngredientService;
 import com.example.demo.Services.PizzaService;
 import com.example.demo.Services.UserService;
 import com.example.demo.entities.IngredientEntity;
 import com.example.demo.entities.PizzaEntity;
-import com.example.demo.entities.UserEntity;
 
 @RestController
 @RequestMapping(path="/pizza")
@@ -29,8 +31,33 @@ public class PizzaController {
 	@Autowired
 	IngredientService ingredientService;
 	
+	@GetMapping("/getAllPizzas")
+	public List<PizzaEntity> getAll(){
+		return pizzaService.findAll();
+	}
+	
+	@GetMapping("/getPizza/{id}")
+	public Optional<PizzaEntity> getPizzaById(@PathVariable String id) {
+		return pizzaService.findById(id);
+	}
+	
+	@PostMapping("/addPizza/{name}")
+	public Long addPizza(@PathVariable String name,@RequestBody PizzaEntity pizza){
+		List<IngredientEntity> ingredients = new ArrayList<IngredientEntity>();
+		ingredients.addAll(pizza.getIngredients());
+		ingredientService.saveAll(ingredients);
+		
+		pizza.setName(name);		
+		pizzaService.save(pizza);
+		return pizza.getId();
+	}
+	
 	@GetMapping("/getPizzas")
 	public String getHelloWorld() {
+		
+		
+		
+		/*
 		PizzaEntity pizza = new PizzaEntity();
 		pizza.setName("Salami");
 		
@@ -67,7 +94,7 @@ public class PizzaController {
 		
 		
 		pizzaService.save(pizza);
-		
+		*/
 		
 		
 		return "getPizzas";
