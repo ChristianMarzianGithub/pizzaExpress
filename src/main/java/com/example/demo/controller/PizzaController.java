@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,10 +17,12 @@ import com.example.demo.Services.IngredientService;
 import com.example.demo.Services.PizzaService;
 import com.example.demo.Services.UserService;
 import com.example.demo.entities.IngredientEntity;
+import com.example.demo.entities.OrderEntity;
 import com.example.demo.entities.PizzaEntity;
+import com.example.demo.entities.UserEntity;
 
 @RestController
-@RequestMapping(path="/pizza")
+@RequestMapping(path="/pizza") 
 public class PizzaController {
 
 	@Autowired
@@ -41,14 +44,20 @@ public class PizzaController {
 		return pizzaService.findById(id);
 	}
 	
-	@PostMapping("/addPizza")
-	public Long addPizza(@RequestBody PizzaEntity pizza){
+	@PostMapping("/sendOrder")
+	public ResponseEntity<String> addPizza(@RequestBody List<PizzaEntity> pizzas){
+		/*
 		List<IngredientEntity> ingredients = new ArrayList<IngredientEntity>();
 		ingredients.addAll(pizza.getIngredients());
 		ingredientService.saveAll(ingredients);
 		
 		pizzaService.save(pizza);
-		return pizza.getId();
+		*/
+		
+		System.out.println(pizzas);
+		
+		
+		return ResponseEntity.ok("Order received successfully!");
 	}
 	
 	@GetMapping("/getPizzas")
@@ -56,18 +65,25 @@ public class PizzaController {
 		
 		
 		
-		/*
+		
 		PizzaEntity pizza = new PizzaEntity();
-		pizza.setName("Salami");
+		pizza.setName("Frutti Di Mare");
 		
 		List<IngredientEntity> ingredients = new ArrayList<>();
 		
 		IngredientEntity i1 = new IngredientEntity();
-		i1.setName("Salami");
+		i1.setName("Tintenfisch");
 		i1.setQuantity(5.0);
 		i1.setUnit("Stück");
 		
 		ingredients.add(i1);
+		
+		IngredientEntity i4 = new IngredientEntity();
+		i4.setName("Thunfisch");
+		i4.setQuantity(5.0);
+		i4.setUnit("Stück");
+		
+		ingredients.add(i4);
 		
 		IngredientEntity i2 = new IngredientEntity();
 		i2.setName("Käse");
@@ -93,7 +109,10 @@ public class PizzaController {
 		
 		
 		pizzaService.save(pizza);
-		*/
+		
+		
+		
+		
 		
 		
 		return "getPizzas";
