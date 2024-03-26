@@ -5,5 +5,6 @@ import java.util.List;
 
 public class OrderEntity {
 
+	private AdressEntity adress;
 	private List<PizzaEntity> pizzas = new ArrayList<>();
 }

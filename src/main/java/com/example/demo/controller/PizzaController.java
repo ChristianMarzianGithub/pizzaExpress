@@ -55,7 +55,7 @@ public class PizzaController {
 		*/
 		
 		System.out.println(pizzas);
-		
+			
 		
 		return ResponseEntity.ok("Order received successfully!");
 	}
@@ -67,7 +67,7 @@ public class PizzaController {
 		
 		
 		PizzaEntity pizza = new PizzaEntity();
-		pizza.setName("Frutti Di Mare");
+		pizza.setName("Salami");
 		
 		List<IngredientEntity> ingredients = new ArrayList<>();
 		
